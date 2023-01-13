@@ -1,4 +1,4 @@
-The "Unlock Mainframe COBOL data files" project includes the following third-party software/licensing:
+The "Unlock Mainframe Data files on AWS Cloud" project includes the following third-party software/licensing:
 
 
 ** The Stingray Schema-Based File Reader by Steven F. Lott - https://github.com/slott56/Stingray-Reader
@@ -31,7 +31,7 @@ SOFTWARE.
 // Original Copyright (c) 2020 Steven F. Lott. Licensed under the MIT License.
 // Modifications Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
-The following python functions from "Stingray Schema-Based File Reader" file [cobol_parser.py](https://github.com/slott56/Stingray-Reader/blob/main/stingray/cobol_parser.py) is included as is or with modifications in cpy_parser.py file in "Unlock Mainframe COBOL data files" project.
+The following python functions from "Stingray Schema-Based File Reader" file cobol_parser.py is included as is or with modifications in cpy_parser.py file in this project.
 
 def expand_repeat():
     ...
@@ -40,3 +40,4 @@ def normalize_picture():
     ...
 
 and some regular expressions.
+
