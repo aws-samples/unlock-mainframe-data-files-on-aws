@@ -1,0 +1,99 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Launch EC2 instance - Web server 01 and 02'
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Label:
+        default: EC2 Configuration
+      Parameters:
+      - SSHKey
+      - LatestAmiId
+      - InstanceType
+      - SubnetID
+      - SecurityGroupID
+Parameters:
+  SSHKey:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Instance SSH key
+  LatestAmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+  InstanceType:
+    Description: EC2 instance type
+    Type: String
+    Default: t2.micro
+  SubnetID:
+    Type: AWS::EC2::Subnet::Id
+    Description: EC2 Subtnet ID
+  SecurityGroupID:
+    Type: AWS::EC2::SecurityGroup::Id
+    Description: Ec2 Security Group
+Resources:
+  EC2Instance1:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref LatestAmiId
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref Ec2InstanceProfile1
+      KeyName: !Ref SSHKey
+      Tags:
+        - Key: Name
+          Value: ec2-mf-unlock-data
+      SecurityGroupIds:
+        - !Ref SecurityGroupID
+      SubnetId: !Ref SubnetID
+      UserData: 
+        Fn::Base64: 
+          !Sub |
+            Content-Type: multipart/mixed; boundary="//"
+            MIME-Version: 1.0
+
+            --//
+            Content-Type: text/cloud-config; charset="us-ascii"
+            MIME-Version: 1.0
+            Content-Transfer-Encoding: 7bit
+            Content-Disposition: attachment; filename="cloud-config.txt"
+
+            #cloud-config
+            cloud_final_modules:
+            - [scripts-user, always]
+
+            --//
+            Content-Type: text/x-shellscript; charset="us-ascii"
+            MIME-Version: 1.0
+            Content-Transfer-Encoding: 7bit
+            Content-Disposition: attachment; filename="userdata.txt"
+
+            #!/bin/bash -xe
+            yum update -y
+            yum install -y aws-cfn-bootstrap 
+            yum install -y git
+            git config --system credential.https://git-codecommit.us-east-1.amazonaws.com.helper '!aws --profile default codecommit credential-helper $@'
+            git config --system credential.https://git-codecommit.us-east-1.amazonaws.com.UseHttpPath true
+            aws configure set region us-east-1
+            cd /
+            git clone https://github.com/aws-samples/unlock-mainframe-data-files-on-aws
+            --//--
+  Ec2InstanceProfile1:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles: [!Ref 'Ec2IamRole1']
+  Ec2IamRole1:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      - arn:aws:iam::aws:policy/AmazonSSMPatchAssociation
+      - arn:aws:iam::aws:policy/AWSCodeCommitReadOnly
+Outputs:
+  EC2Instance1:
+    Description: EC2 Instnace
+    Value: !Ref EC2Instance1
+

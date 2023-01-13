@@ -1,0 +1,42 @@
+The "Unlock Mainframe COBOL data files" project includes the following third-party software/licensing:
+
+
+** The Stingray Schema-Based File Reader by Steven F. Lott - https://github.com/slott56/Stingray-Reader
+
+Licensing information : https://github.com/slott56/Stingray-Reader/blob/main/LICENSE
+
+MIT License
+
+Copyright (c) 2020 Steven F. Lott
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+// Original Copyright (c) 2020 Steven F. Lott. Licensed under the MIT License.
+// Modifications Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+The following python functions from "Stingray Schema-Based File Reader" file [cobol_parser.py](https://github.com/slott56/Stingray-Reader/blob/main/stingray/cobol_parser.py) is included as is or with modifications in cpy_parser.py file in "Unlock Mainframe COBOL data files" project.
+
+def expand_repeat():
+    ...
+
+def normalize_picture(): 
+    ...
+
+and some regular expressions.
