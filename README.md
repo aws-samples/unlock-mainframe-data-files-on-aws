@@ -2,6 +2,18 @@
 
 This solution is designed to help you unlock legacy mainframe data by migrating data files from mainframe systems to AWS. By migrating the data, you can make use of the powerful analytics, machine learning, and other services available in AWS to gain insights and make better decisions based on the data. Additionally, you can also take advantage of the scalability and cost savings of cloud computing. The solution involves transferring data from mainframe datasets, converting it into a CSV format, and then storing the data in AWS. Finally, you can use the AWS services to analyze and process the data to gain insights and derive greater value from your legacy data files.
 
+## Table of Contents
+
+- [Unlock Mainframe Data files on AWS Cloud](#unlock-mainframe-data-files-on-aws-cloud)
+  - [Table of Contents](#table-of-contents)
+  - [Supported Features](#supported-features)
+  - [Current Limitations](#current-limitations)
+  - [Product versions](#product-versions)
+  - [Steps to setup and execute](#steps-to-setup-and-execute)
+  - [Future Enhancements](#future-enhancements)
+  - [Security](#security)
+  - [License](#license)
+
 ## Supported Features
 
 **Datatypes:**

@@ -1,3 +1,8 @@
+#
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+#
+
 import cpy_tokenizer as cpytkn
 import cpy_parser as cpyparsr
 import cobdata_to_csv as cobdata2csv
