@@ -138,8 +138,8 @@ def get_cpy_layout(parse_dict):
                 if parse_dict[item_1][item_2]['signed']:
                     sign = 'SIGNED'
             
-            if 'precision' in parse_dict[item_1][item_2].keys():
-                scale = parse_dict[item_1][item_2]['precision']
+            if 'scale' in parse_dict[item_1][item_2].keys():
+                scale = parse_dict[item_1][item_2]['scale']
             else:
                 scale = 0
 

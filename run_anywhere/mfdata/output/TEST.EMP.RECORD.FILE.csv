@@ -1,0 +1,6 @@
+"EMP_ID","EMP_ID_X","EMP_NAME","EMP_DOB","EMP_ADDR_LINE_1","EMP_ADDR_LINE_2","EMP_ADDR_LINE_3","EMP_YOE_CUR","EMP_YOE_TOTAL","EMP_SALARY","EMP_SALARY_DIFF","EMP_DEPENDENTS_NUM","FILLER_X_100"
+"00001","00001","Jennifer Cooley          ","07/11/1982","P.O. Box 433, 3031 Sem Av","India                    ","693624                   ","+008","+00017.00","+7354.04","+00612.83","+02","                 "
+"00002","00002","Patience Hanson          ","10/04/1985","Ap #839-8598 Nulla Avenue","France                   ","904878                   ","+002","+00016.00","+2155.33","-00179.61","+03","                 "
+"00003","00003","Ignacia Lynch            ","12/14/1984","711-6709 Ornare, Rd.     ","Indonesia                ","561128                   ","+002","+00017.00","+9186.54","+00765.54","+03","                 "
+"00004","00004","Mariam Dejesus           ","08/18/1978","P.O. Box 914, 6128 Sem, S","Turkey                   ","46307                    ","+001","+00018.00","+1890.32","+00157.52","+04","                 "
+"00005","00005","Kevin Anderson           ","07/01/1993","P.O. Box 989, 7831 Mauris","Turkey                   ","474411                   ","+005","+00021.00","+5619.50","-00468.29","+04","                 "

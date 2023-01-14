@@ -41,10 +41,10 @@ def convert_cobdata2csv(input_copybook, input_datafile, output_datafile):
 
 def main():
 
-    ## Convert AWS.M2.CARDDEMO.ACCTDATA.PS.dat to CSV using copybook ACCTFILE.cpy
-    input_copybook = os.path.join(project_dir, 'mfdata', 'copybook', 'ACCTFILE.cpy')
-    input_datafile = os.path.join(project_dir, 'mfdata', 'input', 'AWS.M2.CARDDEMO.ACCTDATA.PS.dat')
-    output_datafile = os.path.join(project_dir, 'mfdata', 'output', 'AWS.M2.CARDDEMO.ACCTDATA.PS.csv')
+    ## Convert TEST.EMP.RECORD.FILE.dat to csv using copybook EMPREC01.cpy
+    input_copybook = os.path.join(project_dir, 'mfdata', 'copybook', 'EMPREC01.cpy')
+    input_datafile = os.path.join(project_dir, 'mfdata', 'input', 'TEST.EMP.RECORD.FILE.dat')
+    output_datafile = os.path.join(project_dir, 'mfdata', 'output', 'TEST.EMP.RECORD.FILE.csv')
     convert_cobdata2csv(input_copybook, input_datafile, output_datafile)
 
     return
