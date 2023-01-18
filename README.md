@@ -27,7 +27,11 @@ This solution is designed to help you unlock legacy mainframe data by migrating 
 
 Currently, the project supports the following features:
 
-**Datatypes:**
+**Dataset types:**
+
+The solution assumes that the input dataset is a Physical Sequential (PS) with Fixed Block (FB) record length. If you have other datasets that are not in PS with FB format, you can convert them to this format on the mainframe using various JCL utility programs such as SORT for Variable Block (VB) datasets or IDCAMS REPRO for Virtual Storage Access Method (VSAM) datasets.
+
+**Data types:**
 
 * COMP-3 or Packed Decimal
 * COMP or Binary
