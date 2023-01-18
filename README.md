@@ -16,6 +16,7 @@ This solution is designed to help you unlock legacy mainframe data by migrating 
   - [Samples](#samples)
     - [Mapping File](#mapping-file)
     - [Input Copybook](#input-copybook)
+    - [Input Data File](#input-data-file)
     - [Output CSV](#output-csv)
     - [View of CSV Data with an Excel table](#view-of-csv-data-with-an-excel-table)
   - [Future Enhancements](#future-enhancements)
@@ -174,6 +175,9 @@ AWS.M2.CARDDEMO.CUSTDATA.PS,AWS.M2.CARDDEMO.CPY(CVCUS01Y)
 
 ### Input Copybook
 
+* [Sample input copybook EMPREC01.cpy](run_anywhere/mfdata/copybook/EMPREC01.cpy)
+* [Sample parsed copybook in JSON format](run_anywhere/mfdata/copybook/EMPREC01.cpy.json)
+
 ```cobol
       * 
       * Sample Employee Record COBOL Layout
@@ -193,8 +197,68 @@ AWS.M2.CARDDEMO.CUSTDATA.PS,AWS.M2.CARDDEMO.CPY(CVCUS01Y)
          05 FILLER                      PIC X(17).
 ```
 
+### Input Data File
+
+* [Sample EBCDIC data file "TEST.EMP.RECORD.FILE" (FB/150)](run_anywhere/mfdata/input/TEST.EMP.RECORD.FILE.dat)
+
+```
+#
+# Hex dump of TEST.EMP.RECORD.FILE.dat
+#
+
+$ xxd -EBCDIC TEST.EMP.RECORD.FILE.dat
+00000000: f0f0 f0f0 f1d1 8595 9589 8685 9940 c396  00001Jennifer Co
+00000010: 9693 85a8 4040 4040 4040 4040 4040 f0f7  oley          07
+00000020: 61f1 f161 f1f9 f8f2 d74b d64b 40c2 96a7  /11/1982P.O. Box
+00000030: 40f4 f3f3 6b40 f3f0 f3f1 40e2 8594 40c1   433, 3031 Sem A
+00000040: a5c9 9584 8981 4040 4040 4040 4040 4040  vIndia
+00000050: 4040 4040 4040 4040 4040 f6f9 f3f6 f2f4            693624
+00000060: 4040 4040 4040 4040 4040 4040 4040 4040
+00000070: 4040 4000 0800 0170 0ff7 f3f5 f4f0 c400     ......73540D.
+00000080: 6128 3cf0 c240 4040 4040 4040 4040 4040  /..0B
+00000090: 4040 4040 4040 f0f0 f0f0 f2d7 81a3 8985        00002Patie
+000000a0: 9583 8540 c881 95a2 9695 4040 4040 4040  nce Hanson
+000000b0: 4040 4040 f1f0 61f0 f461 f1f9 f8f5 c197      10/04/1985Ap
+000000c0: 407b f8f3 f960 f8f5 f9f8 40d5 a493 9381   #839-8598 Nulla
+000000d0: 40c1 a585 95a4 85c6 9981 9583 8540 4040   AvenueFrance
+000000e0: 4040 4040 4040 4040 4040 4040 4040 4040
+000000f0: f9f0 f4f8 f7f8 4040 4040 4040 4040 4040  904878
+00000100: 4040 4040 4040 4040 4000 0200 0160 0ff2           ....-.2
+00000110: f1f5 f5f3 c300 1796 1df0 c340 4040 4040  1553C..o.0C
+00000120: 4040 4040 4040 4040 4040 4040 f0f0 f0f0              0000
+00000130: f3c9 8795 8183 8981 40d3 a895 8388 4040  3Ignacia Lynch
+00000140: 4040 4040 4040 4040 4040 f1f2 61f1 f461            12/14/
+00000150: f1f9 f8f4 f7f1 f160 f6f7 f0f9 40d6 9995  1984711-6709 Orn
+00000160: 8199 856b 40d9 844b 4040 4040 40c9 9584  are, Rd.     Ind
+00000170: 9695 85a2 8981 4040 4040 4040 4040 4040  onesia
+00000180: 4040 4040 4040 f5f6 f1f1 f2f8 4040 4040        561128
+00000190: 4040 4040 4040 4040 4040 4040 4040 4000                 .
+000001a0: 0200 0170 0ff9 f1f8 f6f5 c400 7655 4cf0  .....91865D...<0
+000001b0: c340 4040 4040 4040 4040 4040 4040 4040  C
+000001c0: 4040 f0f0 f0f0 f4d4 8199 8981 9440 c485    00004Mariam De
+000001d0: 9185 a2a4 a240 4040 4040 4040 4040 4040  jesus
+000001e0: f0f8 61f1 f861 f1f9 f7f8 d74b d64b 40c2  08/18/1978P.O. B
+000001f0: 96a7 40f9 f1f4 6b40 f6f1 f2f8 40e2 8594  ox 914, 6128 Sem
+00000200: 6b40 e2e3 a499 9285 a840 4040 4040 4040  , STurkey
+00000210: 4040 4040 4040 4040 4040 4040 f4f6 f3f0              4630
+00000220: f740 4040 4040 4040 4040 4040 4040 4040  7
+00000230: 4040 4040 4000 0100 0180 0ff1 f8f9 f0f3       ......18903
+00000240: c200 1575 2cf0 c440 4040 4040 4040 4040  B....0D
+00000250: 4040 4040 4040 4040 f0f0 f0f0 f5d2 85a5          00005Kev
+00000260: 8995 40c1 9584 8599 a296 9540 4040 4040  in Anderson
+00000270: 4040 4040 4040 f0f7 61f0 f161 f1f9 f9f3        07/01/1993
+00000280: d74b d64b 40c2 96a7 40f9 f8f9 6b40 f7f8  P.O. Box 989, 78
+00000290: f3f1 40d4 81a4 9989 a2e3 a499 9285 a840  31 MaurisTurkey
+000002a0: 4040 4040 4040 4040 4040 4040 4040 4040
+000002b0: 4040 f4f7 f4f4 f1f1 4040 4040 4040 4040    474411
+000002c0: 4040 4040 4040 4040 4040 4000 0500 0210             .....
+000002d0: 0ff5 f6f1 f9f5 c000 4682 9df0 c440 4040  .56195{..b.0D
+000002e0: 4040 4040 4040 4040 4040 4040 4040                     
+```
 
 ### Output CSV
+
+* [Sample output data file in CSV format](run_anywhere/mfdata/output/TEST.EMP.RECORD.FILE.csv)
 
 ```
 "EMP_ID","EMP_ID_X","EMP_NAME","EMP_DOB","EMP_ADDR_LINE_1","EMP_ADDR_LINE_2","EMP_ADDR_LINE_3","EMP_YOE_CUR","EMP_YOE_TOTAL","EMP_SALARY","EMP_SALARY_DIFF","EMP_DEPENDENTS_NUM","FILLER_X_100"
